@@ -4,6 +4,7 @@ import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 import MapFunctions from './MapFunctions';
 import location from "../assets/icon-location.svg";
 import L from 'leaflet';
+import { AiOutlineLoading } from "react-icons/ai";
 
 
 const Map = ({data}) => {
@@ -26,6 +27,13 @@ const Map = ({data}) => {
                 <Marker icon={myIcon} position={[data.location.lat, data.location.lng]} />
                 <MapFunctions data={data} />
             </MapContainer> 
+        )
+    }
+    else{
+        return(
+            <div className="h-[65vh] grid place-content-center">
+                <AiOutlineLoading className="w-24 h-24 animate-spin" />
+            </div>
         )
     }
 }
